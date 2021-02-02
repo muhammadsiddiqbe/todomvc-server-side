@@ -4,11 +4,9 @@ const path = require('path')
 const parser = require('co-body')
 const { v4: uuid } = require('uuid')
 const cors = require('cors')
-const fs = require('fs')
-const util = require('util')
+const READ = require('./src/compenents/io')
+const WRITE = require('./src/compenents/io')
 
-const WRITE = util.promisify(fs.writeFile)
-const READ = util.promisify(fs.readFile)
 
 const PORT = process.env.PORT || 8000
 const app = express()
@@ -40,17 +38,14 @@ app.post('/', async (req, res) => {
 })
 
 app.delete('/', async (req, res) => {
-  const { id = 0 } = await parser.json(req)
 
-  // const itemIndex = formData.findIndex(el => {
-  //   return (el.id === id)
-  // })
+  const { id = 0 } = await parser.json(req)
 
   formData.forEach(element => {
     if (element.id === id) {
       element.removed = true
     }
-  });
+  })
 
 })
 
