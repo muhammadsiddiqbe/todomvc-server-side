@@ -8,15 +8,29 @@
 </head>
 <body>
 
-  <form class="home-form" method="POST">
-
+  <!-- <form class="home-form" method="POST">
+    <h3 class="register-from-header">Register form</h3>
     <div class="fx-row">
-      <input id="username" name="firstname" type="text" placeholder="First name" required>
-      <input id="username" name="lastname" type="text" placeholder="Last name" required>
+      <input name="todoContent" type="text" placeholder="What need to be done?" required>
+
     </div>
 
-    <button type="submit">SEND</button>
-  </form>
+    <button class="home-submit-btn" type="submit">SEND</button>
+  </form> -->
+
+  <h1 class="page-title">itodos</h1>
+
+  <div class="box">
+    <form id="form" class="form" method="POST">
+      <input class="todos-input" type="text" id="inputTodo" placeholder="Add todo" name="todoContent" autocomplete="off" required>
+    </form>
+
+    <ul class="todos" id="list">
+      <li class="todo">
+        <input type="checkbox" name="" id="">
+      </li>
+    </ul>
+  </div>
 
 
   <script src="home.js"></script>
