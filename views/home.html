@@ -22,13 +22,20 @@
 
   <div class="box">
     <form id="form" class="form" method="POST">
-      <input class="todos-input" type="text" id="inputTodo" placeholder="Add todo" name="todoContent" autocomplete="off" required>
+      <input class="todos-input" type="text" id="inputTodo" placeholder="What need to be done?" name="todoContent" autocomplete="off" required>
     </form>
 
     <ul class="todos" id="list">
+    <% for (const obj of formData) { %>
       <li class="todo">
-        <input type="checkbox" name="" id="">
+        <label for="checkbox"></label>
+        <input type="checkbox" name="" id="checkbox" data-checkid="<%= obj.id %>">
+
+        <p><%= obj.todoContent%></p>
+        <button class="todo__button" data-checkid="<%= obj.id %>">X</button>
       </li>
+    <% } %>
+
     </ul>
   </div>
 

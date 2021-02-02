@@ -31,8 +31,6 @@ app.post('/', async (req, res) => {
     removed: false
   })
 
-  console.log(formData)
-
   res.redirect('/')
 })
 
