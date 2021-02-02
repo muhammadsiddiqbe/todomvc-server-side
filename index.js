@@ -4,6 +4,11 @@ const path = require('path')
 const parser = require('co-body')
 const { v4: uuid } = require('uuid')
 const cors = require('cors')
+const fs = require('fs')
+const util = require('util')
+
+const WRITE = util.promisify(fs.writeFile)
+const READ = util.promisify(fs.readFile)
 
 const PORT = process.env.PORT || 8000
 const app = express()

@@ -32,7 +32,9 @@
   </div>
 
   <script>
+    inputTodo.focus()
     const buttons = document.querySelectorAll('.deleter-btn')
+
 
     buttons.forEach(button => {
 
@@ -47,6 +49,7 @@
         })
 
         btn.parentNode.remove()
+
 
       })
     })
