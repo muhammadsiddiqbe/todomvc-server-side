@@ -1,0 +1,33 @@
+body {
+  background-color: teal;
+  color: #fff;
+}
+
+.home-form {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+  padding: 20px 15px;
+  color: #333333;
+  margin-top: 50px;
+  font-size: 17px;
+  border-radius: 8px;
+  box-shadow: 0 10px 0 rgb(67, 67, 67, 0.3);
+}
+
+input {
+  width: 100%;
+  margin: 10px 5px;
+  padding: 7px 3px;
+  font-size: 17px;
+}
+
+.fx-row {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
