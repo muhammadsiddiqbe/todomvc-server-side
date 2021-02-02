@@ -8,16 +8,6 @@
 </head>
 <body>
 
-  <!-- <form class="home-form" method="POST">
-    <h3 class="register-from-header">Register form</h3>
-    <div class="fx-row">
-      <input name="todoContent" type="text" placeholder="What need to be done?" required>
-
-    </div>
-
-    <button class="home-submit-btn" type="submit">SEND</button>
-  </form> -->
-
   <h1 class="page-title">itodos</h1>
 
   <div class="box">
@@ -27,19 +17,41 @@
 
     <ul class="todos" id="list">
     <% for (const obj of formData) { %>
+      <% if (!obj.removed) { %>
       <li class="todo">
         <label for="checkbox"></label>
         <input type="checkbox" name="" id="checkbox" data-checkid="<%= obj.id %>">
 
         <p><%= obj.todoContent%></p>
-        <button class="todo__button" data-checkid="<%= obj.id %>">X</button>
+        <button class="todo__button deleter-btn" id="delete" class="" data-btnid="<%= obj.id %>">X</button>
       </li>
+      <% } %>
     <% } %>
 
     </ul>
   </div>
 
+  <script>
+    const buttons = document.querySelectorAll('.deleter-btn')
 
-  <script src="home.js"></script>
+    buttons.forEach(button => {
+
+      button.addEventListener('click',async ({ currentTarget: btn}) => {
+
+        const { btnid: id } = btn.dataset
+        const body = { id }
+
+        const DELETE = fetch('http://localhost:8000', {
+          method: "DELETE",
+          body: JSON.stringify(body)
+        })
+
+        btn.parentNode.remove()
+
+      })
+    })
+
+  </script>
+
 </body>
 </html>

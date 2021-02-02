@@ -34,5 +34,19 @@ app.post('/', async (req, res) => {
   res.redirect('/')
 })
 
+app.delete('/', async (req, res) => {
+  const { id = 0 } = await parser.json(req)
+
+  // const itemIndex = formData.findIndex(el => {
+  //   return (el.id === id)
+  // })
+
+  formData.forEach(element => {
+    if (element.id === id) {
+      element.removed = true
+    }
+  });
+
+})
 
 app.listen(PORT, console.log(`Server runnning at http://localhost:${PORT}`))
